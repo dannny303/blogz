@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% if title %}
-        <title>Build-A-Blog - {{ title }}</title>
-    {% else %}
-        <title>Build-A-Blog </title>
-    {% endif %}
-    <br>
+        <title>Blogz</title>
+        <h1>Blogz</h1>
+</head>
+   
         <a href="/">Home</a>
         <a href="/newpost">Make New Post</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <a href="/logout">Logout</a>
+        <br>
 <body>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+
     {% block content %} 
         
     {% endblock content %}
