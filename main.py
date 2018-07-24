@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash, session
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blogz:blogblog@localhost:8889/blogz'
@@ -43,8 +44,8 @@ def require_login():
 @app.route('/blog', methods=['POST', 'GET'])
 def index():
 
-    user = User.query.all()
-    return render_template('blog.html', user=user)
+    blogs = Blog.query.all()
+    return render_template('blog.html', blogs=blogs)
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
