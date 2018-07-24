@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
         <title>Blogz</title>
         <h1>Blogz</h1>
-</head>
-   
-        <a href="/">Home</a>
+        <style>
+            .error {
+                color: red;
+            }
+            textarea {
+                margin: 10px 0;
+                width: 540px;
+                height: 120px;
+            }
+        </style>
+    </head>
+<body>
+    <div>
+    <a href="/">Home</a>
         <a href="/newpost">Make New Post</a>
         <a href="/login">Login</a>
         <a href="/register">Register</a>
         <a href="/logout">Logout</a>
         <br>
-<body>
-
+    </div>
     {% with messages = get_flashed_messages(with_categories=True) %}
         <ul>
         {% for category,message in messages %}
